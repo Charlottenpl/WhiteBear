@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sky.whitebear.ui.theme.ThemeColor
 
 @Preview(showBackground = true)
 @Composable
@@ -22,8 +23,8 @@ fun show(){
 
 @Composable
 fun mainView( modifier: Modifier){
-    Column(modifier) {
-        Row(Modifier.fillMaxWidth().background(Color.White), horizontalArrangement = Arrangement.SpaceBetween) {
+    Column(modifier.background(MaterialTheme.colors.background)) {
+        Row(Modifier.fillMaxWidth().background(MaterialTheme.colors.primary), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(text = "acc")
             Text(text = "acc")
             Text(text = "acc")
