@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModel
  */
 
 class SkyViewModel : ViewModel() {
-    var selectId by mutableStateOf(1)        //当前选中Nav id
-    var navNames by mutableStateOf(listOf("首页","设置"))  //Nav tiitle
+    var selectId by mutableStateOf(0)        //当前选中Nav id
+
+    //Chat
+    var chatList by mutableStateOf(listOf(""))
 }

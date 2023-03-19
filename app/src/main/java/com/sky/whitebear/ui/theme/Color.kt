@@ -1,109 +1,269 @@
 package com.sky.whitebear.ui.theme
 
-import androidx.compose.material.Colors
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
 
-var WhiteBlue = Color(0xFFAACCDD)
-var WhiteGreen = Color(0xFFADDDAA)
-var ThemeColor = Color(0xFF67BF63)
-
-
-
-//暗色模式
-val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200,
-
-    )
-
-//亮色模式
-val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+//spring
+val SpringColor = lightColorScheme(
+    primary = Color(0xFF006B58),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFF7CF8D8),
+    onPrimaryContainer = Color(0xFF002019),
+    secondary = Color(0xFF4B635B),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFCDE9DE),
+    onSecondaryContainer = Color(0xFF072019),
+    tertiary = Color(0xFF416277),
+    onTertiary = Color(0xFFFFFFFF),
+    tertiaryContainer = Color(0xFFC6E7FF),
+    onTertiaryContainer = Color(0xFF001E2D),
+    error = Color(0xFFBA1A1A),
+    errorContainer = Color(0xFFFFDAD6),
+    onError = Color(0xFFFFFFFF),
+    onErrorContainer = Color(0xFF410002),
+    background = Color(0xFFFBFDFA),
+    onBackground = Color(0xFF191C1B),
+    surface = Color(0xFFFBFDFA),
+    onSurface = Color(0xFF191C1B),
+    surfaceVariant = Color(0xFFDBE5E0),
+    onSurfaceVariant = Color(0xFF3F4945),
+    outline = Color(0xFF6F7975),
+    inverseOnSurface = Color(0xFFEFF1EE),
+    inverseSurface = Color(0xFF2E3130),
+    inversePrimary = Color(0xFF5DDBBC),
+    surfaceTint = Color(0xFF006B58),
+    outlineVariant = Color(0xFFBFC9C4),
+    scrim = Color(0xFF000000)
 )
 
-//自定义模式
-val SpringColorPalette = Colors(
-    primary = Color(0xFFBB86FC),
-    primaryVariant = Color(0xFFBB86FC),
-    secondary = Color(0xFFBB86FC),
-    secondaryVariant = Color(0xFFBB86FC),
-    background = Color(0xFFBB86FC),
-    surface = Color(0xFFBB86FC),
-    error = Color(0xFFBB86FC),
-    onPrimary = Color(0xFFBB86FC),
-    onSecondary = Color(0xFFBB86FC),
-    onBackground = Color(0xFFBB86FC),
-    onSurface = Color(0xFFBB86FC),
-    onError = Color(0xFFBB86FC),
-    isLight = true
+
+val SpringDarkColor = darkColorScheme(
+    primary = Color(0xFF5DDBBC),
+    onPrimary = Color(0xFF00382D),
+    primaryContainer = Color(0xFF005142),
+    onPrimaryContainer = Color(0xFF7CF8D8),
+    secondary = Color(0xFFB2CCC2),
+    onSecondary = Color(0xFF1D352E),
+    secondaryContainer = Color(0xFF344C44),
+    onSecondaryContainer = Color(0xFFCDE9DE),
+    tertiary = Color(0xFFA9CBE3),
+    onTertiary = Color(0xFF0F3447),
+    tertiaryContainer = Color(0xFF294A5E),
+    onTertiaryContainer = Color(0xFFC6E7FF),
+    error = Color(0xFFFFB4AB),
+    errorContainer = Color(0xFF93000A),
+    onError = Color(0xFF690005),
+    onErrorContainer = Color(0xFFFFDAD6),
+    background = Color(0xFF191C1B),
+    onBackground = Color(0xFFE1E3E0),
+    surface = Color(0xFF191C1B),
+    onSurface = Color(0xFFE1E3E0),
+    surfaceVariant = Color(0xFF3F4945),
+    onSurfaceVariant = Color(0xFFBFC9C4),
+    outline = Color(0xFF89938E),
+    inverseOnSurface = Color(0xFF191C1B),
+    inverseSurface = Color(0xFFE1E3E0),
+    inversePrimary = Color(0xFF006B58),
+    surfaceTint = Color(0xFF5DDBBC),
+    outlineVariant = Color(0xFF3F4945),
+    scrim = Color(0xFF000000)
 )
 
-//自定义模式
-val SummerColorPalette = Colors(
-    primary = Color(0xFFBB86FC),
-    primaryVariant = Color(0xFFBB86FC),
-    secondary = Color(0xFFBB86FC),
-    secondaryVariant = Color(0xFFBB86FC),
-    background = Color(0xFFBB86FC),
-    surface = Color(0xFFBB86FC),
-    error = Color(0xFFBB86FC),
-    onPrimary = Color(0xFFBB86FC),
-    onSecondary = Color(0xFFBB86FC),
-    onBackground = Color(0xFFBB86FC),
-    onSurface = Color(0xFFBB86FC),
-    onError = Color(0xFFBB86FC),
-    isLight = true
+//summer
+val SummerColor = lightColorScheme(
+    primary = Color(0xFF246D00),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFF9CFA72),
+    onPrimaryContainer = Color(0xFF062100),
+    secondary = Color(0xFF55624C),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFD8E7CB),
+    onSecondaryContainer = Color(0xFF131F0D),
+    tertiary = Color(0xFF386667),
+    onTertiary = Color(0xFFFFFFFF),
+    tertiaryContainer = Color(0xFFBBEBEC),
+    onTertiaryContainer = Color(0xFF002021),
+    error = Color(0xFFBA1A1A),
+    errorContainer = Color(0xFFFFDAD6),
+    onError = Color(0xFFFFFFFF),
+    onErrorContainer = Color(0xFF410002),
+    background = Color(0xFFFDFDF6),
+    onBackground = Color(0xFF1A1C18),
+    surface = Color(0xFFFDFDF6),
+    onSurface = Color(0xFF1A1C18),
+    surfaceVariant = Color(0xFFDFE4D7),
+    onSurfaceVariant = Color(0xFF43483E),
+    outline = Color(0xFF73796D),
+    inverseOnSurface = Color(0xFFF1F1EA),
+    inverseSurface = Color(0xFF2F312D),
+    inversePrimary = Color(0xFF81DC59),
+    surfaceTint = Color(0xFF246D00),
+    outlineVariant = Color(0xFFC3C8BB),
+    scrim = Color(0xFF000000),
 )
 
-//自定义模式
-val AutumnColorPalette = Colors(
-    primary = Color(0xFFBB86FC),
-    primaryVariant = Color(0xFFBB86FC),
-    secondary = Color(0xFFBB86FC),
-    secondaryVariant = Color(0xFFBB86FC),
-    background = Color(0xFFBB86FC),
-    surface = Color(0xFFBB86FC),
-    error = Color(0xFFBB86FC),
-    onPrimary = Color(0xFFBB86FC),
-    onSecondary = Color(0xFFBB86FC),
-    onBackground = Color(0xFFBB86FC),
-    onSurface = Color(0xFFBB86FC),
-    onError = Color(0xFFBB86FC),
-    isLight = true
+
+val SummerDarkColor = darkColorScheme(
+    primary = Color(0xFF81DC59),
+    onPrimary = Color(0xFF0F3900),
+    primaryContainer = Color(0xFF195200),
+    onPrimaryContainer = Color(0xFF9CFA72),
+    secondary = Color(0xFFBCCBB0),
+    onSecondary = Color(0xFF273421),
+    secondaryContainer = Color(0xFF3E4A36),
+    onSecondaryContainer = Color(0xFFD8E7CB),
+    tertiary = Color(0xFFA0CFD0),
+    onTertiary = Color(0xFF003738),
+    tertiaryContainer = Color(0xFF1E4E4F),
+    onTertiaryContainer = Color(0xFFBBEBEC),
+    error = Color(0xFFFFB4AB),
+    errorContainer = Color(0xFF93000A),
+    onError = Color(0xFF690005),
+    onErrorContainer = Color(0xFFFFDAD6),
+    background = Color(0xFF1A1C18),
+    onBackground = Color(0xFFE3E3DC),
+    surface = Color(0xFF1A1C18),
+    onSurface = Color(0xFFE3E3DC),
+    surfaceVariant = Color(0xFF43483E),
+    onSurfaceVariant = Color(0xFFC3C8BB),
+    outline = Color(0xFF8D9287),
+    inverseOnSurface = Color(0xFF1A1C18),
+    inverseSurface = Color(0xFFE3E3DC),
+    inversePrimary = Color(0xFF246D00),
+    surfaceTint = Color(0xFF81DC59),
+    outlineVariant = Color(0xFF43483E),
+    scrim = Color(0xFF000000)
 )
 
-//自定义模式
-val WinterColorPalette = Colors(
-    primary = Color(0xFFBB86FC),
-    primaryVariant = Color(0xFFBB86FC),
-    secondary = Color(0xFFBB86FC),
-    secondaryVariant = Color(0xFFBB86FC),
-    background = Color(0xFFBB86FC),
-    surface = Color(0xFFBB86FC),
-    error = Color(0xFFBB86FC),
-    onPrimary = Color(0xFFBB86FC),
-    onSecondary = Color(0xFFBB86FC),
-    onBackground = Color(0xFFBB86FC),
-    onSurface = Color(0xFFBB86FC),
-    onError = Color(0xFFBB86FC),
-    isLight = true
+
+//autumn
+val AutumnColor = lightColorScheme(
+    primary = Color(0xFFA23F00),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFFFFDBCC),
+    onPrimaryContainer = Color(0xFF351000),
+    secondary = Color(0xFF77574A),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFFFDBCC),
+    onSecondaryContainer = Color(0xFF2C160C),
+    tertiary = Color(0xFF665F30),
+    onTertiary = Color(0xFFFFFFFF),
+    tertiaryContainer = Color(0xFFEEE3A9),
+    onTertiaryContainer = Color(0xFF201C00),
+    error = Color(0xFFBA1A1A),
+    errorContainer = Color(0xFFFFDAD6),
+    onError = Color(0xFFFFFFFF),
+    onErrorContainer = Color(0xFF410002),
+    background = Color(0xFFFFFBFF),
+    onBackground = Color(0xFF201A18),
+    surface = Color(0xFFFFFBFF),
+    onSurface = Color(0xFF201A18),
+    surfaceVariant = Color(0xFFF4DED5),
+    onSurfaceVariant = Color(0xFF52443D),
+    outline = Color(0xFF85736C),
+    inverseOnSurface = Color(0xFFFBEEE9),
+    inverseSurface = Color(0xFF362F2C),
+    inversePrimary = Color(0xFFFFB595),
+    surfaceTint = Color(0xFFA23F00),
+    outlineVariant = Color(0xFFD8C2BA),
+    scrim = Color(0xFF000000)
+)
+
+var AutumnDarkColor = darkColorScheme(
+    primary = Color(0xFFFFB595),
+    onPrimary = Color(0xFF571E00),
+    primaryContainer = Color(0xFF7C2E00),
+    onPrimaryContainer = Color(0xFFFFDBCC),
+    secondary = Color(0xFFE6BEAD),
+    onSecondary = Color(0xFF442A1F),
+    secondaryContainer = Color(0xFF5D4034),
+    onSecondaryContainer = Color(0xFFFFDBCC),
+    tertiary = Color(0xFFD2C78F),
+    onTertiary = Color(0xFF373106),
+    tertiaryContainer = Color(0xFF4E471B),
+    onTertiaryContainer = Color(0xFFEEE3A9),
+    error = Color(0xFFFFB4AB),
+    errorContainer = Color(0xFF93000A),
+    onError = Color(0xFF690005),
+    onErrorContainer = Color(0xFFFFDAD6),
+    background = Color(0xFF201A18),
+    onBackground = Color(0xFFEDE0DB),
+    surface = Color(0xFF201A18),
+    onSurface = Color(0xFFEDE0DB),
+    surfaceVariant = Color(0xFF52443D),
+    onSurfaceVariant = Color(0xFFD8C2BA),
+    outline = Color(0xFFA08D85),
+    inverseOnSurface = Color(0xFF201A18),
+    inverseSurface = Color(0xFFEDE0DB),
+    inversePrimary = Color(0xFFA23F00),
+    surfaceTint = Color(0xFFFFB595),
+    outlineVariant = Color(0xFF52443D),
+    scrim = Color(0xFF000000)
+)
+
+//winter
+val WinterColor = lightColorScheme(
+    primary = Color(0xFF355CA8),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFFD9E2FF),
+    onPrimaryContainer = Color(0xFF001944),
+    secondary = Color(0xFF575E71),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFDBE2F9),
+    onSecondaryContainer = Color(0xFF141B2C),
+    tertiary = Color(0xFF5F52A6),
+    onTertiary = Color(0xFFFFFFFF),
+    tertiaryContainer = Color(0xFFE6DEFF),
+    onTertiaryContainer = Color(0xFF1B0261),
+    error = Color(0xFFBA1A1A),
+    errorContainer = Color(0xFFFFDAD6),
+    onError = Color(0xFFFFFFFF),
+    onErrorContainer = Color(0xFF410002),
+    background = Color(0xFFFEFBFF),
+    onBackground = Color(0xFF1B1B1F),
+    surface = Color(0xFFFEFBFF),
+    onSurface = Color(0xFF1B1B1F),
+    surfaceVariant = Color(0xFFE1E2EC),
+    onSurfaceVariant = Color(0xFF44464F),
+    outline = Color(0xFF757780),
+    inverseOnSurface = Color(0xFFF2F0F4),
+    inverseSurface = Color(0xFF303034),
+    inversePrimary = Color(0xFFAFC6FF),
+    surfaceTint = Color(0xFF355CA8),
+    outlineVariant = Color(0xFFC5C6D0),
+    scrim = Color(0xFF000000)
+)
+
+var WinterDarkColor = darkColorScheme(
+    primary = Color(0xFFAFC6FF),
+    onPrimary = Color(0xFF002D6D),
+    primaryContainer = Color(0xFF17448F),
+    onPrimaryContainer = Color(0xFFD9E2FF),
+    secondary = Color(0xFFBFC6DC),
+    onSecondary = Color(0xFF293042),
+    secondaryContainer = Color(0xFF404659),
+    onSecondaryContainer = Color(0xFFDBE2F9),
+    tertiary = Color(0xFFC9BEFF),
+    onTertiary = Color(0xFF312175),
+    tertiaryContainer = Color(0xFF47398D),
+    onTertiaryContainer = Color(0xFFE6DEFF),
+    error = Color(0xFFFFB4AB),
+    errorContainer = Color(0xFF93000A),
+    onError = Color(0xFF690005),
+    onErrorContainer = Color(0xFFFFDAD6),
+    background = Color(0xFF1B1B1F),
+    onBackground = Color(0xFFE3E2E6),
+    surface = Color(0xFF1B1B1F),
+    onSurface = Color(0xFFE3E2E6),
+    surfaceVariant = Color(0xFF44464F),
+    onSurfaceVariant = Color(0xFFC5C6D0),
+    outline = Color(0xFF8F9099),
+    inverseOnSurface = Color(0xFF1B1B1F),
+    inverseSurface = Color(0xFFE3E2E6),
+    inversePrimary = Color(0xFF355CA8),
+    surfaceTint = Color(0xFFAFC6FF),
+    outlineVariant = Color(0xFF44464F),
+    scrim = Color(0xFF000000)
 )

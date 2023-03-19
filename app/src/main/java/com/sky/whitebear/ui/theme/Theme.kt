@@ -1,8 +1,13 @@
 package com.sky.whitebear.ui.theme
 
+import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.*
+import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme.shapes
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import com.sky.whitebear.date.*
 
 /**
@@ -16,10 +21,26 @@ import com.sky.whitebear.date.*
 @Composable
 fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
 
+//    // Dynamic color is available on Android 12+
+//    val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+//    val colorScheme = when {
+//        dynamicColor && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
+//        dynamicColor && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
+//        darkTheme -> darkColorScheme()
+//        else -> lightColorScheme()
+//    }
+//
+//    MaterialTheme(
+//        colorScheme = colorScheme,
+//        typography = typography,
+//        shapes = shapes,
+//        content = content
+//    )
+
     if (darkTheme && setting_is_system_dark) {
         //Dark
         MaterialTheme(
-            colors = DarkColorPalette,
+            colorScheme = darkColorScheme(),
             typography = Typography,
             shapes = Shapes,
             content = content
@@ -29,7 +50,7 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
         when(type){
             theme_light -> {
                 MaterialTheme(
-                    colors = LightColorPalette,
+                    colorScheme = lightColorScheme(),
                     typography = Typography,
                     shapes = Shapes,
                     content = content
@@ -37,7 +58,7 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
             }
             theme_dark -> {
                 MaterialTheme(
-                    colors = DarkColorPalette,
+                    colorScheme = darkColorScheme(),
                     typography = Typography,
                     shapes = Shapes,
                     content = content
@@ -45,7 +66,7 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
             }
             theme_spring -> {
                 MaterialTheme(
-                    colors = SpringColorPalette,
+                    colorScheme = SpringColor,
                     typography = SpringTypography,
                     shapes = SpringShapes,
                     content = content
@@ -53,7 +74,23 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
             }
             theme_summer -> {
                 MaterialTheme(
-                    colors = SummerColorPalette,
+                    colorScheme = SummerColor,
+                    typography = SummerTypography,
+                    shapes = SummerShapes,
+                    content = content
+                )
+            }
+            theme_autumn -> {
+                MaterialTheme(
+                    colorScheme = AutumnColor,
+                    typography = SummerTypography,
+                    shapes = SummerShapes,
+                    content = content
+                )
+            }
+            theme_winter -> {
+                MaterialTheme(
+                    colorScheme = WinterColor,
                     typography = SummerTypography,
                     shapes = SummerShapes,
                     content = content
@@ -61,7 +98,7 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
             }
             else -> {
                 MaterialTheme(
-                    colors = LightColorPalette,
+                    colorScheme = lightColorScheme(),
                     typography = Typography,
                     shapes = Shapes,
                     content = content
