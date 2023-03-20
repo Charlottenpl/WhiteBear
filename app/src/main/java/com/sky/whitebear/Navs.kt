@@ -50,7 +50,7 @@ fun Navs(selectId: Int) {
                     Icon(
                         imageVector = s.icon,
                         contentDescription = "点击按钮",
-                        tint = if (viewModel.selectId == index) MaterialTheme.colorScheme.primary else Color.Black
+                        tint = if (viewModel.selectId == s.id) MaterialTheme.colorScheme.primary else Color.Black
                     )
                 },
                 label = {
@@ -62,28 +62,6 @@ fun Navs(selectId: Int) {
         }
 
     }
-//    Scaffold(modifier = Modifier.fillMaxSize(),
-//        bottomBar = {
-//
-//    }
-//    ) { innerPadding ->
-//
-//        //根据按钮选择展示的view
-//        println(innerPadding)
-//        Box(Modifier.fillMaxSize()) {
-//            if (viewModel.selectId == nav_home) {
-//                mainView(modifier = Modifier)
-//            } else if (viewModel.selectId == nav_chat) {
-//                chatView(modifier = Modifier)
-//            } else if (viewModel.selectId == nav_music) {
-//                musicView(modifier = Modifier)
-//            } else if (viewModel.selectId == nav_setting) {
-//                settingView(modifier = Modifier)
-//            }
-//        }
-//
-//
-//    }
 }
 
 
@@ -99,22 +77,4 @@ data class BtnDate(var name: String, var icon: ImageVector, var id: Int){
 
 fun onClick() {
 
-}
-
-@Composable
-fun NavItem(name: String, id: Int, modifier: Modifier) {
-    var viewModel: SkyViewModel = viewModel()
-    Column(modifier.padding(5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Icon(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
-            contentDescription = name,
-            Modifier.size(30.dp),
-            tint = if (viewModel.selectId == id) MaterialTheme.colorScheme.primary else Color.Black
-        )
-        Text(
-            text = name,
-            fontSize = 12.sp,
-            color = if (viewModel.selectId == id) MaterialTheme.colorScheme.primary else Color.Black
-        )
-    }
 }
