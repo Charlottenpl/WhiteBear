@@ -1,7 +1,7 @@
 package com.sky.whitebear.date.bean
 
 /**
- *
+ * 消息类
  * @author: charlotte
  * @date: 2023/3/19
  */

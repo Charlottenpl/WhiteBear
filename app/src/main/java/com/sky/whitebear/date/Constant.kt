@@ -26,7 +26,7 @@ var theme_winter  = 6
 
 //setting
 var setting_is_system_dark = true; //是否跟随系统夜间模式
-var setting_theme_id = 4; //当前主题
+var setting_theme_id = 5; //当前主题
 
 
 //chat status

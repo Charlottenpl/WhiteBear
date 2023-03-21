@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)//false 则内容进入状态栏
         setContent {
                 rememberSystemUiController().setStatusBarColor(
-                    Color.Transparent, darkIcons = setting_theme_id != theme_dark)
+                    Color.Transparent, darkIcons = model.setting_theme_id != theme_dark)
                     Column() {
                         getStatusBarHeigh()
                         skyView()
@@ -68,7 +68,7 @@ fun getStatusBarHeigh(){
 @Preview(showBackground = true)
 @Composable
 fun skyView() {
-    WhiteBearTheme(type = setting_theme_id) {
+    WhiteBearTheme(type = model.setting_theme_id) {
         Column(Modifier.fillMaxSize()) {
             var viewModel: SkyViewModel = viewModel()
 

@@ -37,7 +37,7 @@ fun WhiteBearTheme(type: Int = 1, darkTheme: Boolean = isSystemInDarkTheme(), co
 //        content = content
 //    )
 
-    if (darkTheme && setting_is_system_dark) {
+    if (darkTheme && model.setting_is_system_dark) {
         //Dark
         MaterialTheme(
             colorScheme = darkColorScheme(),
