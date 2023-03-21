@@ -70,6 +70,8 @@ fun chat(){
 @Composable
 fun chatView( modifier: Modifier = Modifier){
     var chatList = model.chatList
+    var index = 0;
+    var state = rememberScrollState()
 
     Spacer(modifier = Modifier
         .height(model.status_bar_heigh)
@@ -92,17 +94,33 @@ fun chatView( modifier: Modifier = Modifier){
             }) { index, item ->
                 // view
                 Row(
-                    Modifier.fillMaxWidth()) {
-                    Box(
-                        Modifier
-                            .fillParentMaxWidth()
-                            .clickable {
-                                //TODO 打开详情页...
+                    Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())) {
+                    Row(
+                        Modifier.fillMaxWidth()) {
+                        Box(
+                            Modifier
+                                .fillParentMaxWidth()
+                                .clickable {
+                                    //TODO 打开详情页...
 
-                            }) {
-                        ChatItem(chat = item)
+                                }) {
+                            ChatItem(chat = item)
+                        }
+                        Box( modifier = Modifier
+                            .background(MaterialTheme.colorScheme.error)
+                            .height(60.dp), ) {
+                            Text(text = "删除", modifier = Modifier.height(60.dp), color = MaterialTheme.colorScheme.onErrorContainer)
+                        }
+
                     }
 
+                    Surface( modifier = Modifier
+                        .background(MaterialTheme.colorScheme.error)
+                        .height(IntrinsicSize.Max), ) {
+                        Text(text = "删除", modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.onErrorContainer)
+                    }
                 }
             }
         }
