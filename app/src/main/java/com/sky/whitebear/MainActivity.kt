@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        con = this
         model = ViewModelProvider(this).get(SkyViewModel::class.java) //初始化全局model
 
         WindowCompat.setDecorFitsSystemWindows(window, false)//false 则内容进入状态栏

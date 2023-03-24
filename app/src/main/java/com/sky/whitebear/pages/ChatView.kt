@@ -2,6 +2,8 @@ package com.sky.whitebear
 
 import android.util.Log
 import androidx.compose.foundation.*
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.forEachGesture
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,6 +39,7 @@ import com.sky.whitebear.date.bean.ChatItem
 import com.sky.whitebear.date.chat_text
 import com.sky.whitebear.date.model
 import kotlinx.coroutines.launch
+import com.sky.whitebear.util.System
 
 object ChatView {
 
@@ -128,6 +132,9 @@ fun ChatUserInfo() {
                         .width(50.dp)
                         .height(50.dp)
                         .padding(5.dp)
+                        .clickable {
+                            System.vibrator(100)
+                        }
                         .clip(RoundedCornerShape(40.dp))
                         .background(MaterialTheme.colorScheme.tertiaryContainer),
                     model = "https://images.cnblogs.com/cnblogs_com/charlottepl/1676587/o_200321060715%E5%93%A6%E5%90%BC.png",
@@ -175,6 +182,7 @@ fun ChatList(modifier: Modifier = Modifier) {
             }) { index, item ->
                 //TODO 不知道怎么设置滑动的时候其他item复位
                 model.chatList[index].swipeState = rememberScrollState()
+
                 // view
                 Row(
                     Modifier
@@ -186,7 +194,7 @@ fun ChatList(modifier: Modifier = Modifier) {
                             .fillParentMaxWidth()
                             .clickable {
                                 //TODO 打开详情页...
-
+                                System.vibrator(100)
 
                             }) {
                         ChatItem(chat = item)
@@ -202,6 +210,7 @@ fun ChatList(modifier: Modifier = Modifier) {
                             .clickable {
                                 coroutineScope.launch {
                                     //DONE 已读
+                                    System.vibrator(100)
                                     model.chatList[index].swipeState.animateScrollTo(0)
                                 }
                             }, contentAlignment = Alignment.Center
@@ -220,6 +229,7 @@ fun ChatList(modifier: Modifier = Modifier) {
                             .clickable {
                                 coroutineScope.launch {
                                     //DONE 删除
+                                    System.vibrator(100)
                                     model.chatList[index].swipeState.scrollTo(0)
                                     model.chatList.removeAt(index)
                                 }

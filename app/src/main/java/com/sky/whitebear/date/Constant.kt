@@ -13,6 +13,8 @@ import com.sky.whitebear.date.bean.User
 var model: SkyViewModel = SkyViewModel()
 @SuppressLint("StaticFieldLeak")
 lateinit var nav: NavHostController
+@SuppressLint("StaticFieldLeak")
+lateinit var con: Context
 
 
 
