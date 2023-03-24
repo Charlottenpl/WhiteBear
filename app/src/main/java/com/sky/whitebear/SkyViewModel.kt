@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import com.sky.whitebear.date.bean.ChatDate
 import com.sky.whitebear.date.bean.User
 import com.sky.whitebear.date.nav_chat
+import com.sky.whitebear.date.nav_home
 import com.sky.whitebear.date.theme_spring
 
 /**
@@ -21,7 +22,7 @@ class SkyViewModel : ViewModel() {
     /**
      * Basic Date
      */
-    var selectId by mutableStateOf(nav_chat)        //当前选中Nav id
+    var selectId by mutableStateOf(nav_home)        //当前选中Nav id
 
     /**
      * User Info

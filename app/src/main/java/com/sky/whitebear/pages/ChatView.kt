@@ -52,7 +52,7 @@ object ChatView{
 }
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun chat(){
     val chat = ChatDate()
@@ -69,24 +69,83 @@ fun chat(){
 
 @Composable
 fun chatView( modifier: Modifier = Modifier){
-    var chatList = model.chatList
-    var index = 0;
-    var state = rememberScrollState()
 
+    //占位布局
+    ChatSpecer()
+
+    //顶部栏
+    ChatUserInfo()
+
+    //聊天列表
+    ChatList()
+
+}
+
+
+/**
+ * 占位布局
+ */
+@Composable
+fun ChatSpecer(){
     Spacer(modifier = Modifier
         .height(model.status_bar_heigh)
         .fillMaxWidth()
         .background(MaterialTheme.colorScheme.secondaryContainer)) //占位
+}
+
+
+/**
+ * 顶部拦
+ */
+@Composable
+fun ChatUserInfo(){
+
     Row(modifier = Modifier
         .height(60.dp)
         .padding(0.dp, 0.dp, 0.dp, 0.dp)
         .fillMaxWidth()
         .background(MaterialTheme.colorScheme.secondaryContainer), horizontalArrangement = Arrangement.SpaceBetween) {
 
-        ChatUserInfo()
+        Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
+            Column(
+                Modifier
+                    .padding(10.dp, 0.dp, 0.dp, 0.dp)
+                    .height(60.dp)
+                    .width(60.dp), verticalArrangement = Arrangement.Center) {
+                //从网络加载图片就只能使用第三方库了
+                AsyncImage(
+                    modifier = Modifier
+                        .width(50.dp)
+                        .height(50.dp)
+                        .padding(5.dp)
+                        .clip(RoundedCornerShape(40.dp))
+                        .background(MaterialTheme.colorScheme.tertiaryContainer),
+                    model = "https://images.cnblogs.com/cnblogs_com/charlottepl/1676587/o_200321060715%E5%93%A6%E5%90%BC.png",
+                    contentDescription = "user_img"
+                )
+            }
+
+            //用户名称等信息
+            Column() {
+                Text(text = "Charlotte", fontSize = 14.sp, color = MaterialTheme.colorScheme.onSecondaryContainer, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(text = "☁️ 天气晴朗，阳光明媚", fontSize = 10.sp, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.8f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
         ChatDropMenu()
     }
-    Column(modifier = modifier.fillMaxWidth()) {
+}
+
+
+/**
+ * 聊天信息列表
+ */
+@Composable
+fun ChatList(modifier: Modifier = Modifier){
+    var chatList = model.chatList
+    var index = 0;
+    var state = rememberScrollState()
+
+    Column(modifier = modifier.background(MaterialTheme.colorScheme.background)) {
         LazyColumn (modifier = modifier.fillMaxSize(), contentPadding = PaddingValues(0.dp,0.dp)){
             itemsIndexed(chatList, key = { index, item ->
                 // 可以使用 item 的某个属性或哈希码作为键
@@ -108,27 +167,31 @@ fun chatView( modifier: Modifier = Modifier){
                                 }) {
                             ChatItem(chat = item)
                         }
+
                         Box( modifier = Modifier
-                            .background(MaterialTheme.colorScheme.error)
-                            .height(60.dp), ) {
-                            Text(text = "删除", modifier = Modifier.height(60.dp), color = MaterialTheme.colorScheme.onErrorContainer)
+                            .background(MaterialTheme.colorScheme.secondaryContainer)
+                            .height(60.dp)
+                            .width(80.dp), contentAlignment = Alignment.Center) {
+                            Text(text = "已读", modifier = Modifier.align(Alignment.Center), color = MaterialTheme.colorScheme.onSecondaryContainer)
                         }
 
-                    }
-
-                    Surface( modifier = Modifier
-                        .background(MaterialTheme.colorScheme.error)
-                        .height(IntrinsicSize.Max), ) {
-                        Text(text = "删除", modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.onErrorContainer)
+                        Box( modifier = Modifier
+                            .background(MaterialTheme.colorScheme.error)
+                            .height(60.dp)
+                            .width(80.dp), contentAlignment = Alignment.Center) {
+                            Text(text = "删除", modifier = Modifier.align(Alignment.Center), color = MaterialTheme.colorScheme.onError)
+                        }
                     }
                 }
             }
         }
     }
-
 }
 
 
+/**
+ * chat顶部菜单栏
+ */
 @Composable
 fun ChatDropMenu(){
     var expander by remember { mutableStateOf(false) }
@@ -170,37 +233,6 @@ fun ChatDropMenu(){
                 trailingIcon = { Text("F11", textAlign = TextAlign.Center) })
         }
     }
-}
-
-
-@Composable
-fun ChatUserInfo(){
-    Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
-        Column(
-            Modifier
-                .padding(10.dp, 0.dp, 0.dp, 0.dp)
-                .height(60.dp)
-                .width(60.dp), verticalArrangement = Arrangement.Center) {
-            //从网络加载图片就只能使用第三方库了
-            AsyncImage(
-                modifier = Modifier
-                    .width(50.dp)
-                    .height(50.dp)
-                    .padding(5.dp)
-                    .clip(RoundedCornerShape(40.dp))
-                    .background(MaterialTheme.colorScheme.tertiaryContainer),
-                model = "https://images.cnblogs.com/cnblogs_com/charlottepl/1676587/o_200321060715%E5%93%A6%E5%90%BC.png",
-                contentDescription = "user_img"
-            )
-        }
-
-        //用户名称等信息
-        Column() {
-            Text(text = "Charlotte", fontSize = 14.sp, color = MaterialTheme.colorScheme.onSecondaryContainer, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Text(text = "☁️ 天气晴朗，阳光明媚", fontSize = 10.sp, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.8f), maxLines = 1, overflow = TextOverflow.Ellipsis)
-        }
-    }
-
 }
 
 
