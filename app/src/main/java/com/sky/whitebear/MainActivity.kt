@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
@@ -17,30 +18,42 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.statusBarsHeight
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sky.whitebear.date.*
+import com.sky.whitebear.nav.NavGraph
 import com.sky.whitebear.service.MusicService
 import com.sky.whitebear.ui.theme.WhiteBearTheme
 
 class MainActivity : ComponentActivity() {
 
+    @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProvider(this).get(SkyViewModel::class.java) //初始化全局model
 
         WindowCompat.setDecorFitsSystemWindows(window, false)//false 则内容进入状态栏
         setContent {
-                rememberSystemUiController().setStatusBarColor(
-                    Color.Transparent, darkIcons = model.setting_theme_id != theme_dark)
-                    Column() {
-                        getStatusBarHeigh()
-                        skyView()
+            WhiteBearTheme(type = model.setting_theme_id) {
+                Column(Modifier.fillMaxSize()) {
+                    nav = rememberAnimatedNavController()
+                    rememberSystemUiController().setStatusBarColor(
+                        Color.Transparent, darkIcons = model.setting_theme_id != theme_dark)
+                    getStatusBarHeigh()
+                    NavGraph(navController = nav){
+                        finish()
                     }
+                }
+            }
+
         }
+
+
 
         initDate()
         // 启动 MusicService

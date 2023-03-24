@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
-import com.sky.whitebear.date.bean.ChatDate
+import com.sky.whitebear.date.bean.ChatItem
 import com.sky.whitebear.date.bean.User
 import com.sky.whitebear.date.nav_chat
 import com.sky.whitebear.date.nav_home
@@ -22,7 +22,7 @@ class SkyViewModel : ViewModel() {
     /**
      * Basic Date
      */
-    var selectId by mutableStateOf(nav_home)        //当前选中Nav id
+    var selectId by mutableStateOf(nav_chat)        //当前选中Nav id
 
     /**
      * User Info
@@ -39,7 +39,7 @@ class SkyViewModel : ViewModel() {
     /**
      * Chat Model
      */
-    var chatList:MutableList<ChatDate> = mutableStateListOf()
+    var chatList:MutableList<ChatItem> = mutableStateListOf()
     fun delChatDateLast(){
         chatList.removeLast()
     }

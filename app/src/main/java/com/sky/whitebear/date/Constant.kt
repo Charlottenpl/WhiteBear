@@ -1,11 +1,23 @@
 package com.sky.whitebear.date
 
+import android.annotation.SuppressLint
 import android.content.Context
+import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.rememberScrollState
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavHostController
 import com.sky.whitebear.SkyViewModel
+import com.sky.whitebear.date.bean.User
 
 //static date
 var model: SkyViewModel = SkyViewModel()
+@SuppressLint("StaticFieldLeak")
+lateinit var nav: NavHostController
+
+
+
+//UserBean
+
 
 
 //NavId
@@ -34,3 +46,4 @@ var chat_text = 0
 var chat_img = 1
 var chat_music = 2
 var chat_file = 3
+var initState = ScrollState(0)
